@@ -11,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import nasa.robot.challenge.service.RobotService;
+import nasa.robot.challenge.exceptions.BadMovimentRequestException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
@@ -27,17 +28,17 @@ public class RobotServiceTest {
 	@Autowired
 	private RobotService robotService;
 	
-	@Test(expected = BadMovimentRequest.class)
+	@Test(expected = BadMovimentRequestException.class)
 	public void testInvalidMoveOutOfRangeWhitoutRotation(){
 		robotService.move("MMMMM");
 	}
 	
-	@Test(expected = BadMovimentRequest.class)
+	@Test(expected = BadMovimentRequestException.class)
 	public void testInvalidMovimentOutOfRangeWithLeftRotation(){
 		robotService.move("MMLM");
 	}
 
-	@Test(expected = BadMovimentRequest.class)
+	@Test(expected = BadMovimentRequestException.class)
 	public void testInvalidMovimentOutOfRangeWithRightRotation(){
 		robotService.move("MMRMMMMM");
 	}
