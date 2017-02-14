@@ -31,45 +31,49 @@ public class RobotServiceTest {
 	
 	//Testing invalid moviments
 	@Test(expected = BadMovimentRequestException.class)
-	public void testInvalidMoveOutOfRangeWhitoutRotation(){
+	public void testInvalidMoveOutOfRangeWhitoutRotation() throws EmptyMovimentRequestException{
 		String payload = robotService.move("MMMMM");
 	}
 	
 	@Test(expected = BadMovimentRequestException.class)
-	public void testInvalidMovimentOutOfRangeWithLeftRotation(){
+	public void testInvalidMovimentOutOfRangeWithLeftRotation() throws EmptyMovimentRequestException{
 		String payload = robotService.move("MMLM");
 	}
 
 	@Test(expected = BadMovimentRequestException.class)
-	public void testInvalidMovimentOutOfRangeWithRightRotation(){
+	public void testInvalidMovimentOutOfRangeWithRightRotation() throws EmptyMovimentRequestException{
 		String payload = robotService.move("MMRMMMMM");
 	}
 	
 	@Test(expected = EmptyMovimentRequestException.class)
-	public void testEmptyMovimentRequest(){
+	public void testEmptyMovimentRequest() throws EmptyMovimentRequestException{
 		String payload = robotService.move("");
 	}
 	
+	@Test(expected = InvalidCommandException.class)
+	public void testInvalidCommandException(){
+		String payload = robotService.move("MMWM");
+	}
 	
 	//Testing valid Moviments
 	@Test
-	public void testValidMovimentWithoutRotation(){
+	public void testValidMovimentWithoutRotation() throws EmptyMovimentRequestException{
 		String payload = robotService.move("MMMM");
 		
 	}
 	
 	@Test
-	public void testValidMovimentWithRightRotation(){
+	public void testValidMovimentWithRightRotation() throws EmptyMovimentRequestException{
 		String payload = robotService.move("MMRM");
 	}
 	
 	@Test
-	public void testValidMovimentWithLeftRotation(){
+	public void testValidMovimentWithLeftRotation() throws EmptyMovimentRequestException{
 		String payload = robotService.move("RMLMM");
 	}
 	
 	@Test
-	public void testValidMovimentWithRotationOnly(){
+	public void testValidMovimentWithRotationOnly() throws EmptyMovimentRequestException{
 		String payload = robotService.move("RLRLRL");
 	}
 	
