@@ -27,9 +27,20 @@ public class RobotServiceTest {
 	@Autowired
 	private RobotService robotService;
 	
-	@Test
-	public void testBasicInvalidMove(){
-		fail();
+	@Test(expected = BadMovimentRequest.class)
+	public void testInvalidMoveOutOfRangeWhitoutRotation(){
+		robotService.move("MMMMM");
+	}
+	
+	@Test(expected = BadMovimentRequest.class)
+	public void testInvalidMovimentOutOfRangeWithLeftRotation(){
+		robotService.move("MMLM");
 	}
 
+	@Test(expected = BadMovimentRequest.class)
+	public void testInvalidMovimentOutOfRangeWithRightRotation(){
+		robotService.move("MMRMMMMM");
+	}
+	
+	
 }
