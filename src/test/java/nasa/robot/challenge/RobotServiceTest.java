@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import nasa.robot.challenge.service.RobotService;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
 public class RobotServiceTest {
