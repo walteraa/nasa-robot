@@ -28,20 +28,49 @@ public class RobotServiceTest {
 	@Autowired
 	private RobotService robotService;
 	
+	
+	//Testing invalid moviments
 	@Test(expected = BadMovimentRequestException.class)
 	public void testInvalidMoveOutOfRangeWhitoutRotation(){
-		robotService.move("MMMMM");
+		String payload = robotService.move("MMMMM");
 	}
 	
 	@Test(expected = BadMovimentRequestException.class)
 	public void testInvalidMovimentOutOfRangeWithLeftRotation(){
-		robotService.move("MMLM");
+		String payload = robotService.move("MMLM");
 	}
 
 	@Test(expected = BadMovimentRequestException.class)
 	public void testInvalidMovimentOutOfRangeWithRightRotation(){
-		robotService.move("MMRMMMMM");
+		String payload = robotService.move("MMRMMMMM");
 	}
 	
+	@Test(expected = EmptyMovimentRequestException.class)
+	public void testEmptyMovimentRequest(){
+		String payload = robotService.move("");
+	}
+	
+	
+	//Testing valid Moviments
+	@Test
+	public void testValidMovimentWithoutRotation(){
+		String payload = robotService.move("MMMM");
+		
+	}
+	
+	@Test
+	public void testValidMovimentWithRightRotation(){
+		String payload = robotService.move("MMRM");
+	}
+	
+	@Test
+	public void testValidMovimentWithLeftRotation(){
+		String payload = robotService.move("RMLMM");
+	}
+	
+	@Test
+	public void testValidMovimentWithRotationOnly(){
+		String payload = robotService.move("RLRLRL");
+	}
 	
 }
