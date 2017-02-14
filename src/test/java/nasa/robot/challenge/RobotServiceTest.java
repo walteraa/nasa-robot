@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import nasa.robot.challenge.service.RobotService;
-import nasa.robot.challenge.exceptions.BadMovimentRequestException;
+import nasa.robot.challenge.exceptions.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration
