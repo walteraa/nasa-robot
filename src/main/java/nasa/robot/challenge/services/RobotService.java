@@ -1,4 +1,4 @@
-package nasa.robot.challenge.service;
+package nasa.robot.challenge.services;
 
 import java.awt.Point;
 
@@ -6,6 +6,7 @@ import javax.annotation.PostConstruct;
 
 import org.springframework.stereotype.Service;
 
+import nasa.robot.challenge.DTO.PositionDTO;
 import nasa.robot.challenge.exceptions.BadMovimentRequestException;
 import nasa.robot.challenge.exceptions.EmptyMovimentRequestException;
 import nasa.robot.challenge.exceptions.InvalidCommandException;
@@ -27,7 +28,7 @@ public class RobotService {
 		movimentMasks[Orientation.W.getValue()] = new Point(-1, 0);
 	}
 
-	public String move(String input)
+	public PositionDTO move(String input)
 			throws EmptyMovimentRequestException, InvalidCommandException, BadMovimentRequestException {
 		if (input.trim().isEmpty())
 			throw new EmptyMovimentRequestException("Empty Input");
@@ -37,8 +38,9 @@ public class RobotService {
 		for (char mov : input.toCharArray()) {
 			processMov(mov);
 		}
-		String payload = "(" + (int) position.getX() + "," + (int) position.getY() + ","
-				+ Orientation.values()[maskIndex].toString() + ")";
+		
+		PositionDTO payload = new PositionDTO((int) position.getX(), (int) position.getY(), Orientation.values()[maskIndex].toString());
+		
 		return payload;
 	}
 
