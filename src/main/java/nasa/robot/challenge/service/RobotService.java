@@ -46,10 +46,10 @@ public class RobotService {
 		String mov = Character.toString(m).toLowerCase();
 		if (M.equals(mov) || L.equals(mov) || R.equals(mov)) {
 			if (M.equals(mov)) {
-				if ((0 >= (position.getX() + movimentMasks[maskIndex].getX()))
-						&& ((position.getX() + movimentMasks[maskIndex].getX()) <= 4)	
-						&& (0 >= position.getY() + movimentMasks[maskIndex].getY())
-						&& (position.getY() + movimentMasks[maskIndex].getY() <= 4)) {
+				int auxX = (int) (position.getX() + movimentMasks[maskIndex].getX());
+				int auxY = (int) (position.getY() + movimentMasks[maskIndex].getY());
+				if ( 0 <= auxX && auxX <= 4
+					&& 0 <= auxY && auxY <= 4) {
 					position.x = (int) (position.getX() + movimentMasks[maskIndex].getX());
 					position.y = (int) (position.getY() + movimentMasks[maskIndex].getY());
 				} else {
