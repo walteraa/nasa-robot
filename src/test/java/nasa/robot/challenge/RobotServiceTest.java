@@ -2,6 +2,7 @@ package nasa.robot.challenge;
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,6 +66,7 @@ public class RobotServiceTest {
 			throws EmptyMovimentRequestException, InvalidCommandException, BadMovimentRequestException {
 		String payload = robotService.move("MMMM");
 
+		Assert.assertEquals("Response content incorrect.", "(0,4,N)", payload);
 	}
 
 	@Test
