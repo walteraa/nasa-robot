@@ -79,4 +79,14 @@ public class NasaRobotControllerTest {
 				.andExpect(status().isBadRequest());
 	}
 	
+	
+	
+	@Test
+	public void testEmptyCommand() throws Exception{
+		this.mockMvc.perform(
+				post("/rest/mars/")
+				.contentType(contentType))
+				.andExpect(status().isBadRequest());
+	}
+	
 }

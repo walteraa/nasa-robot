@@ -20,7 +20,11 @@ public class NasaRobotController {
 	@Autowired
 	private RobotService robotService;
 	
-	
+	/**
+	 * The Action to receive commands from POST request.
+	 * @param command String containing the NASA command.
+	 * @return Return a Response based on the input command
+	 */
 	@RequestMapping(method = RequestMethod.POST, value = "/rest/mars/{command}")
 	public ResponseEntity<PositionDTO> move(@PathVariable("command") String command){
 		try {
@@ -30,6 +34,15 @@ public class NasaRobotController {
 		} catch (EmptyMovimentRequestException | InvalidCommandException | BadMovimentRequestException e) {
 			return new ResponseEntity<PositionDTO>(HttpStatus.BAD_REQUEST);
 		}
+		
+	}
+	/**
+	 * This action is used to response a BAD REQUEST when no command is sent.
+	 * @return Bad Request
+	 */
+	@RequestMapping(method = RequestMethod.POST, value = "/rest/mars/")
+	public ResponseEntity<Object> moveEmpty(){
+		return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
 		
 	}
 	

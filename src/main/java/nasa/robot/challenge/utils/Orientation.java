@@ -1,5 +1,9 @@
 package nasa.robot.challenge.utils;
-
+/**
+ * This ENUM represents the Cardinal Orientation
+ * @author Walter A. Alves
+ *
+ */
 public enum Orientation {
 	N(0){
 		@Override
