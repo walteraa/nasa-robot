@@ -11,7 +11,7 @@ This project is a ContaAzul challenge that consist in a  REST which receives a c
 * The robot should be STATELESS.
 
 
-*NOTICE:* I decided follow the REST API references about the response. Instead `(x, y, [N | S | E | W]` I will return a JSON as bellow: 
+*NOTICE:* I decided follow the REST API references about the response. Instead `(x, y, [N | S | E | W])` I will return a JSON as bellow: 
 ```
 {
   "x": 2,
