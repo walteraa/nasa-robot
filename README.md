@@ -13,4 +13,36 @@ This project is a ContaAzul challenge that consist in a  REST which receives a c
 
 ## Execution examples
 
+Command:
 
+`curl -s --request POST http://localhost:8080/rest/mars/MMRMMRMM`
+
+Output:
+
+```
+{
+  "x": 2,
+  "y": 0,
+  "orientation": "S"
+}
+```
+Command:
+
+`curl -s --request POST http://localhost:8080/rest/mars/MMRMMRMMMM`
+
+Output:
+
+`400 BAD REQUEST.(Status only)`
+
+Command:
+`http://localhost:8080/rest/mars/RLRLRLRLR`
+
+Output:
+
+```
+{
+  "x": 0,
+  "y": 0,
+  "orientation": "E"
+}
+```
