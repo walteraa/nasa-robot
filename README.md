@@ -20,6 +20,7 @@ This project is a ContaAzul challenge that consist in a  REST which receives a c
 }
 ```
 
+
 ## Execution examples
 
 Command:
@@ -55,3 +56,28 @@ Output:
   "orientation": "E"
 }
 ```
+
+## Build project
+
+To build the project snapshot you should execut the follow steps in the root of project path:
+
+`mvn clean install`
+`mvn package`
+
+## Running project
+
+After that build the snapshot, it will be in the  `target/NasaRobot-0.0.1-SNAPSHOT.jar` and you can start the project using the command `java -jar target/NasaRobot-0.0.1-SNAPSHOT.jar`.
+
+
+## Docker automation
+
+If you want to run this application in a container, you can use docker.
+
+To use this resource you should have:
+* macOS or Linux 
+* Apache Maven 
+* Docker daemon installed
+
+Just run the command `./docker-build.sh` in the root of project path. Wait some seconds after build finish.
+
+
