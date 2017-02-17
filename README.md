@@ -14,8 +14,8 @@ This project is a ContaAzul challenge that consist in a  REST which receives a c
 *NOTICE:* I decided follow the REST API references about the response. Instead `(x, y, [N | S | E | W])` I will return a JSON as below: 
 ```
 {
-  "x": 2,
-  "y": 0,
+  "x": x,
+  "y": y,
   "orientation": "[N | S | E | W]"
 }
 ```
