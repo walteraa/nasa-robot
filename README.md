@@ -62,7 +62,9 @@ Output:
 To build the project snapshot you should execut the follow steps in the root of project path:
 
 `mvn clean install`
+
 `mvn package`
+
 
 ## Running project
 
